@@ -1,6 +1,8 @@
 {
     "type": "project",
     "license": "proprietary",
+    "name": "appointly-online/appointment-service",
+    "description": "Appointment service",
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
