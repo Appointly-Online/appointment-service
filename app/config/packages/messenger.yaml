@@ -1,0 +1,16 @@
+framework:
+    messenger:
+        serializer:
+            default_serializer: messenger.transport.symfony_serializer
+            symfony_serializer:
+                format: json
+                context: { }
+
+        transports:
+            write_commands: "%env(MESSENGER_TRANSPORT_DSN)%"
+
+        routing:
+            'App\Appointment\Application\Command\Create\MakeAppointmentCommand': write_commands
+            'App\Appointment\Application\Command\Create\ChangeAppointmentDescriptionCommand': write_commands
+            'App\Appointment\Application\Command\Create\CreatePatientCommand': write_commands
+            'App\Appointment\Application\Command\Create\ChangePatientNameCommand': write_commands

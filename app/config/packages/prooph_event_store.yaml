@@ -1,0 +1,21 @@
+prooph_event_store:
+    stores:
+        default:
+            event_store: 'app.event_store.default'
+
+    projection_managers:
+        appointment_projection_manager:
+            event_store: 'app.event_store.default' # event store
+            connection: 'app.event_store.pdo_connection.postgres'
+            projections:
+                appointment_projection:
+                    read_model: App\Appointment\Infrastructure\Persistence\ORM\Projections\AppointmentReadModel
+                    projection: App\Appointment\Infrastructure\Persistence\ORM\Projections\AppointmentProjection
+                patient_projection:
+                    read_model: App\Appointment\Infrastructure\Persistence\ORM\Projections\PatientReadModel
+                    projection: App\Appointment\Infrastructure\Persistence\ORM\Projections\PatientProjection
+services:
+    _defaults:
+        public: false
+
+    Prooph\EventSourcing\EventStoreIntegration\AggregateTranslator: null

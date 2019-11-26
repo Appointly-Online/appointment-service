@@ -1,0 +1,30 @@
+appointment:create:
+    path: /appointment/
+    methods: [POST]
+    controller:  App\UI\HTTP\REST\Controller\AppointmentController::create
+
+appointment:list:
+    path: /appointment/
+    methods: [GET]
+    controller:  App\UI\HTTP\REST\Controller\AppointmentController::list
+
+appointment:update:
+    path: /appointment/{appointmentId}/
+    methods: [PUT]
+    controller:  App\UI\HTTP\REST\Controller\AppointmentController::update
+
+########################################################################################################################
+patient:create:
+    path: /patient/
+    methods: [POST]
+    controller:  App\UI\HTTP\REST\Controller\PatientController::create
+
+patient:update:
+    path: /patient/{patientId}/
+    methods: [PUT]
+    controller:  App\UI\HTTP\REST\Controller\PatientController::update
+
+patient:list:
+    path: /patient/
+    methods: [GET]
+    controller:  App\UI\HTTP\REST\Controller\PatientController::list
