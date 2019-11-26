@@ -4,19 +4,19 @@
     "name": "appointly-online/appointment-service",
     "description": "Appointment service",
     "require": {
-        "php": "^7.1.3",
+        "php": "^7.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "beberlei/assert": "^3.2",
-        "friendsofsymfony/rest-bundle": "^2.5",
+        "friendsofsymfony/rest-bundle": "^2.6",
         "prooph/event-sourcing": "^5.6",
-        "prooph/event-store-symfony-bundle": "^0.6.0",
+        "prooph/event-store-symfony-bundle": "^0.6",
         "prooph/pdo-event-store": "^1.11",
         "ramsey/uuid": "^3.8",
         "ramsey/uuid-doctrine": "^1.5",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",
-        "symfony/flex": "^1.3.1",
+        "symfony/flex": "^1.4",
         "symfony/form": "4.3.*",
         "symfony/framework-bundle": "4.3.*",
         "symfony/messenger": "4.3.*",
@@ -26,7 +26,8 @@
         "symfony/yaml": "4.3.*"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.13",
+        "symfony/maker-bundle": "^1.14",
+        "symfony/phpunit-bridge": "^5.0",
         "symfony/profiler-pack": "^1.0",
         "symfony/test-pack": "^1.0",
         "theofidry/psysh-bundle": "^4.0"
@@ -61,7 +62,8 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@php -r \"file_exists('.env') || copy('.env.dist', '.env');\""
         ],
         "post-update-cmd": [
             "@auto-scripts"
