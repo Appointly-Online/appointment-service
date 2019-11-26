@@ -1,4 +1,4 @@
-FROM businessio/appointment-service-php:v2
+FROM appointlyonline/appointment-service-php:v1
 
 ###########################################################################
 # Production PHP.ini config

@@ -2,7 +2,7 @@ version: '3'
 
 services:
     rabbitmq:
-        image: businessio/appointment-service-rabbitmq
+        image: appointlyonline/appointment-service-rabbitmq
         build:
             context: .
             dockerfile: docker/rabbitmq/Dockerfile
@@ -17,7 +17,7 @@ services:
             - ./var/data/rabbitmq:/var/lib/rabbitmq
 
     nginx:
-        image: businessio/appointment-service-nginx
+        image: appointlyonline/appointment-service-nginx
         build:
             context: .
             dockerfile: docker/nginx/Dockerfile
@@ -29,7 +29,7 @@ services:
             - ${NGINX_HOST_PORT}:${NGINX_REMOTE_PORT}
 
     php:
-        image: businessio/appointment-service-php
+        image: appointlyonline/appointment-service-php
         build:
             context: .
             dockerfile: docker/php/Dockerfile.dev
@@ -39,7 +39,7 @@ services:
             - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_PATH_CONTAINER_SUFFIX}
 
     postgres:
-        image: businessio/appointment-service-postgres
+        image: appointlyonline/appointment-service-postgres
         build:
             context: .
             dockerfile: docker/postgres/Dockerfile
