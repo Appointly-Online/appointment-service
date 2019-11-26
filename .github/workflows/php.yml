@@ -11,13 +11,13 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Validate composer.json and composer.lock
-      run: ./app/composer validate
+      run: composer validate -d app
 
     - name: Install dependencies
-      run: ./app/composer install --prefer-dist --no-progress --no-suggest
+      run: composer install --prefer-dist --no-progress --no-suggest -d app
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
-    - name: Run test suite
-      run: ./app/composer run-script test
+    # - name: Run test suite
+    #   run: composer -d app run-script test
